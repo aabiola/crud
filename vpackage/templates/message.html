@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block body %}
+            <h1>Message Us</h1>
+            {% with m= get_flashed_messages() %}
+            {% for i in m: %}
+            {{ i }}
+            {% endfor %}
+            {% endwith %}
+            <form action="{{ url_for('message')}}" method="POST">
+                {%  for h in gift %}
+                    {{ h['category_name'] }}
+                    <input type='checkbox' name='{{ h['category_name'] }}'>
+                {% endfor %}
+
+                {% for field in form: %}
+                {% if field =='csrf_token' %} 
+                {{  field }}
+
+                
+                {% if field =='BooleanField' %} 
+
+                
+                {% else: %}                
+               
+                <div class='form-group'>
+                        
+                        {{ field.label }} 
+                        {{  field(class_='form-control') }}
+                </div>
+                {% endif %}
+               
+                {% endfor %}
+                   
+               
+                    
+                  </form> 
+                  {% endblock %}

@@ -1,0 +1,56 @@
+<!doctype <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sample Web Page</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <table border='1'>
+
+                {% macro addone(x):  %}
+                {% set x = x + 1 %}   
+                {{ x }}                        
+                {% endmacro %}
+        
+              
+
+                ++++++++++++++++++++++
+
+            {{  gg }}
+           
+            {% if deets : %}
+            {% for i in deets: %}
+            {{ i }}
+            {{ loop.index + 1 }}
+           
+            {# {{ addone(loop.index) }} #}
+             <tr>
+               
+                <td>{{ i.Category.category_name  }}</td>
+            <td>{{ i.Product.product_price  }}</td>
+            <td>{% set m = i.Category.products  %}
+                {{ if }}
+                    <ul>
+                {% for j in m: %}
+                
+                    <li>
+                        
+                {{ j.product_name }}
+                </li>
+                {% endfor %}
+                </ul>
+            </td>
+        </tr>
+            {% endfor %}
+            {% endif %}
+            
+    </table>
+    </body>
+</html>
